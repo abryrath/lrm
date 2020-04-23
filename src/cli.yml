@@ -1,5 +1,5 @@
 name: lrm
-version: '0.0'
+version: '0.1'
 author: Abry Rath <abryrath@gmail.com>
 about: Generate lorem ipsum on the command line
 args:

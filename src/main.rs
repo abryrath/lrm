@@ -2,7 +2,7 @@
 extern crate clap;
 extern crate lipsum;
 use clap::App;
-use lipsum::{lipsum_title, lipsum_words};
+use lipsum::lipsum_words;
 
 fn main() {
     let yaml = load_yaml!("cli.yml");
@@ -33,11 +33,9 @@ fn main() {
         if matches.is_present("break_width") {
             break_width = matches.value_of("break_width").unwrap().parse().unwrap();
         }
-        let n = content.len().checked_div(break_width).unwrap();
         let mut i = 0;
         let mut bound: usize = break_width;
         while bound <= content.len() {
-            // let mut bound: usize = (i+1) * break_width;
             if !content.is_char_boundary(bound) {
                 bound -= 1;
                 continue;
@@ -47,15 +45,5 @@ fn main() {
             bound = (i+1) * break_width;
         }
     }
-    // println!("Word count: {}", word_count);
-    // let mut title_case = false;
-    // if matches.is_present("title_case") {
-    //     title_case = true;
-    // }
-    // println!("title_case: {}", title_case);
-
-    // let out = lipsum_words(10);
-
-    // let out = generate.
     println!("{}", content);
 }
