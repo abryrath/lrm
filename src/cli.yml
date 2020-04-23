@@ -1,0 +1,29 @@
+name: lrm
+version: '0.0'
+author: Abry Rath <abryrath@gmail.com>
+about: Generate lorem ipsum on the command line
+args:
+  - words:
+      short: w
+      long: words
+      help: Specify the number of words to generate, defaulting to 50. Setting this overrides `chars`.
+      takes_value: true
+  - chars:
+      short: c
+      long: chars
+      help: Specify the number of characters to generate, including whitespace.
+      takes_value: true
+      conflicts_with: words
+  - breaks:
+      short: b
+      long: breaks
+      help: Include line breaks
+  - break_width:
+      short: W
+      long: break-width
+      help: Insert line breaks after this many characters, defaulting to 80.
+      takes_value: true
+  # - title_case:
+  #     short: t
+  #     long: title-case
+  #     help: Generate text in title-case
